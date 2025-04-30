@@ -43,11 +43,7 @@ class WeatherSettingPage extends GetView<WeatherSettingLogic> {
                           await prefs.setBool('fahrenheit', v);
                         });
                   })
-                : const Icon(
-                    Icons.keyboard_arrow_right,
-                    size: 20,
-                    color: Colors.grey,
-                  ))
+                : const Text("v1.0.0").paddingOnly(right: 10))
       ].toRow(mainAxisAlignment: MainAxisAlignment.spaceBetween),
     ).gestures(onTap: () {
       switch (index) {
@@ -58,9 +54,6 @@ class WeatherSettingPage extends GetView<WeatherSettingLogic> {
           controller.imageSelected();
           break;
         case 2:
-          break;
-        case 3:
-          controller.aboutWeatherUS(context);
           break;
       }
     });

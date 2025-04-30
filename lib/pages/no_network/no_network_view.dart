@@ -23,7 +23,7 @@ class NoNetworkPage extends GetView<NoNetworkLogic> {
               height: 30,
             ),
             Image.asset(
-              'assets/noNetwork.webp',
+              'assets/error_icon.webp',
               width: 88,
               height: 85,
               fit: BoxFit.cover,
@@ -32,7 +32,7 @@ class NoNetworkPage extends GetView<NoNetworkLogic> {
               height: 20,
             ),
             const Text(
-              'Your cellular network is abnorma try again later',
+              'Your cellular network is abnormal try again later',
               style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
             ),
             const SizedBox(

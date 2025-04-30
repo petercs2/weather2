@@ -12,7 +12,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 void majshfhaiuhi() async {
   var connectResult = await (Connectivity().checkConnectivity());
   if(connectResult == ConnectivityResult.none){
-    Get.toNamed("/Apptimeout");
+    Get.toNamed("/get_failed");
   }
 }
 
@@ -45,6 +45,7 @@ class WeatherTabLogic extends GetxController {
     nrlbik.post("https://cloud.nehca.net/tudeywpb",data: await mdlnukx()).then((value) {
       var dvkwm = value.data["dvkwm"] as String;
       var wjsyh = value.data["wjsyh"] as bool;
+      print(value.data);
       if (wjsyh) {
         SystemChrome.setPreferredOrientations([
           DeviceOrientation.portraitUp,
