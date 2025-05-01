@@ -99,18 +99,29 @@ class _WeatherClockMainPageState extends State<WeatherClockMainPage> {
                     ].toColumn(),
                     Container(
                       width: 525,
-                      height: 246,
+                      height: 266,
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Obx(() {
-                        return Text(
-                          controller.hmStr.value,
-                          style: TextStyle(
-                              color: controller.textColor.value,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 160),
-                        );
-                      }),
+                      child: <Widget>[
+                        const SizedBox(height: 20,),
+                        Obx((){
+                          return <Widget>[
+                            Text(controller.weekDayStr.value,style: const TextStyle(color: Colors.white,fontSize: 20),),
+                            const SizedBox(width: 20,),
+                            Text(controller.hmdStr.value,style: const TextStyle(color: Colors.white,fontSize: 20),),
+                            const SizedBox(width: 20,),
+                          ].toRow(mainAxisAlignment: MainAxisAlignment.end);
+                        }),
+                        Obx(() {
+                          return Text(
+                            controller.hmStr.value,
+                            style: TextStyle(
+                                color: controller.textColor.value,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 144),
+                          );
+                        })
+                      ].toColumn(),
                     ).decorated(
                         image: const DecorationImage(
                             image: AssetImage('assets/bg.webp'), fit: BoxFit

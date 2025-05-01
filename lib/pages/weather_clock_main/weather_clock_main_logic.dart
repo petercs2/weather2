@@ -15,6 +15,8 @@ class WeatherClockMainLogic extends GetxController {
   Timer? _timer;
 
   var hmStr = ''.obs;
+  var hmdStr = ''.obs;
+  var weekDayStr = ''.obs;
   var type = 0.obs;
   var typeStr = 'Sunny'.obs;
   var sunLeft = 0.0.obs;
@@ -28,6 +30,8 @@ class WeatherClockMainLogic extends GetxController {
   void startTimer() {
     final currentNow = DateTime.now();
     hmStr.value = DateFormat('HH:mm').format(currentNow);
+    hmdStr.value = DateFormat('MM/dd/yyyy').format(currentNow);
+    weekDayStr.value = DateFormat('EEEE').format(currentNow);
     var left = currentNow.hour * 20.0;
     if (left >= 480) {
       left = 480;
