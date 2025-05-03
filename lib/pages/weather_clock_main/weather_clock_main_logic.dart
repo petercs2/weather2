@@ -17,9 +17,11 @@ class WeatherClockMainLogic extends GetxController {
   var hmStr = ''.obs;
   var hmdStr = ''.obs;
   var weekDayStr = ''.obs;
+  var hourStr = 0.obs;
   var type = 0.obs;
   var typeStr = 'Sunny'.obs;
   var sunLeft = 0.0.obs;
+  var sunTop = 0.0.obs;
   var textColor = Colors.white.obs;
   var fahrenheit = true.obs;
   Uint8List? image;
@@ -32,6 +34,7 @@ class WeatherClockMainLogic extends GetxController {
     hmStr.value = DateFormat('HH:mm').format(currentNow);
     hmdStr.value = DateFormat('MM/dd/yyyy').format(currentNow);
     weekDayStr.value = DateFormat('EEEE').format(currentNow);
+    hourStr.value = currentNow.hour;
     var left = currentNow.hour * 20.0;
     if (left >= 480) {
       left = 480;
@@ -40,11 +43,13 @@ class WeatherClockMainLogic extends GetxController {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       final now = DateTime.now();
       hmStr.value = DateFormat('HH:mm').format(now);
-      var left = now.hour * 20.0;
+      var left = now.hour * 10.0;
+      var top = now.hour * 0.1;
       if (left >= 480) {
         left = 480;
       }
       sunLeft.value = left;
+      sunTop.value = top;
     });
   }
 

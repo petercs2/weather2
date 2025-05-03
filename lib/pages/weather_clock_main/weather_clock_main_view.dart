@@ -62,10 +62,10 @@ class _WeatherClockMainPageState extends State<WeatherClockMainPage> {
                   ),
                   Obx(() {
                     return Positioned(
-                        bottom: 50,
+                        bottom: 50 + controller.hourStr.value * 1.1,
                         left: controller.sunLeft.value,
                         child: Image.asset(
-                          'assets/sun.webp',
+                          'assets/${(controller.hourStr.value >= 19 || controller.hourStr.value <= 8) ? 'moon' : 'sun'}.webp',
                           fit: BoxFit.cover,
                         ));
                   }),
